@@ -17,7 +17,7 @@ class Snake:
 
     def create_snake(self):
         """
-        Create the initial snake consisting on 3 gold colored square segments (Turtle  instance)
+        Create the initial snake consisting on 3 gold colored square segments (Turtle  instances)
         3 Turtle objects == 1 Snake object
 
         """

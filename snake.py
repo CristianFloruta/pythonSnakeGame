@@ -9,6 +9,7 @@ class Snake:
     def __init__(self):
         self.segments = []
         self.create_snake()
+        self.head = self.segments[0]
 
     def create_snake(self):
         """
@@ -41,22 +42,22 @@ class Snake:
         """
         Change snake head direction by setting the head(ing) to head(ing) to "east" -> 0 degree to the left.
         """
-        self.segments[0].setheading(180)
+        self.head.setheading(180)
 
     def go_right(self):
         """
         Change snake head direction by setting the head(ing) to "west" -> 180 degree to the left.
         """
-        self.segments[0].setheading(0)
+        self.head.setheading(0)
 
     def go_up(self):
         """
         Change snake head direction by setting the head(ing) to "north" -> 90 degree to the left.
         """
-        self.segments[0].setheading(90)
+        self.head.setheading(90)
 
     def go_down(self):
         """
         Change snake head direction by setting the head(ing) to "south" -> 270 degree to the left.
         """
-        self.segments[0].setheading(270)
+        self.head.setheading(270)

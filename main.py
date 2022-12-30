@@ -3,6 +3,7 @@ from time import sleep
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
+from gameOver import GameOver
 
 BOARD_COLOR = "black"
 screen = Screen()
@@ -15,6 +16,8 @@ screen.tracer(0)  # turn off the tracer IOT tell the screen when to refresh by u
 snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
+game_over = GameOver()
+
 
 screen.listen()  # waiting for a keystroke
 screen.onkey(key="Left", fun=snake.go_left)  # move to left when left arrow is pressed
@@ -32,5 +35,10 @@ while game_on:
     if snake.head.distance(food) < 15:
         food.reset_location()
         scoreboard.score_count()
+    # detect collision with wall
+    if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280:
+        game_over.inform()
+        game_on = False
+
 
 screen.exitonclick()

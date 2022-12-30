@@ -11,6 +11,7 @@ class GameOver(Turtle):
 
     def inform(self):
         """
+        create a turtle object
         :return: Write "Game Over" on the game screen!
         """
         self.write(arg="GAME OVER!", align="center", font=("Courier", 24, "bold"), )

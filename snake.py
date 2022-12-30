@@ -28,6 +28,28 @@ class Snake:
             new_segment.goto(position)
             self.segments.append(new_segment)
 
+    def add_segment(self, position):
+        """
+        Create a new Turtle object (shape = "square", color= "gold")
+        Send the new segment to the position given by .extend method
+
+        :param position: - is position of the last segment of the snake
+                         - is given by the .extend method
+        :return: an additional element of the segments list (the list with all Turtle objects that define the Snake)
+        """
+        new_segment = Turtle("square")
+        new_segment.color("gold")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+
+    def extend(self):
+        """
+        extend the snake with one segment at the end of the snake ("segments" list)
+        used the .add_segment method
+        """
+        self.add_segment(self.segments[-1].position())
+
     def move(self):
         """
         Mimic snake movement!

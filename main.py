@@ -22,8 +22,8 @@ game_over = GameOver()
 screen.listen()  # waiting for a keystroke
 screen.onkey(key="Left", fun=snake.go_left)  # move to left when left arrow is pressed
 screen.onkey(key="Right", fun=snake.go_right)
-screen.onkey(key="w", fun=snake.go_up)
-screen.onkey(key="s", fun=snake.go_down)
+screen.onkey(key="Up", fun=snake.go_up)
+screen.onkey(key="Down", fun=snake.go_down)
 
 game_on = True
 while game_on:
@@ -35,8 +35,9 @@ while game_on:
     if snake.head.distance(food) < 15:
         food.reset_location()
         scoreboard.score_count()
+        snake.extend()
     # detect collision with wall
-    if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 290 or snake.head.ycor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() < -290:
         game_over.inform()
         game_on = False
 

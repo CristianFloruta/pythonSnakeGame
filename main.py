@@ -40,6 +40,10 @@ while game_on:
     if snake.head.xcor() > 290 or snake.head.ycor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() < -290:
         game_over.inform()
         game_on = False
-
+    # detect collision of snake.head with all snake.segments except when snake.head == segment
+    for segment in snake.segments:
+        if segment != snake.head and snake.head.distance(segment) < 10:
+            game_over.inform()
+            game_on = False
 
 screen.exitonclick()
